@@ -49,6 +49,7 @@ public class DumperTest {
         final String expected = "" +
                 "user nginx;\n" +
                 "#worker_processes  2;\n" +
+                "#comment not end with semicolon\n"+
                 "worker_priority -10;\n" +
                 "proxy_pass http://unix:/opt/apps/ipn/ipn.sock:/;\n";
         Assert.assertEquals(expected, TestUtils.dump("common/c3.conf"));

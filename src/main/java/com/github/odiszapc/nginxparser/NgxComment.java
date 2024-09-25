@@ -23,7 +23,13 @@ package com.github.odiszapc.nginxparser;
 public class NgxComment extends NgxAbstractEntry {
 
     public NgxComment(String comment) {
-        getTokens().add(new NgxToken(comment.substring(1)));
+        comment = comment.replaceAll("[\n\r]", "");
+        NgxToken token;
+        if (comment.startsWith("#"))
+            token = new NgxToken(comment.substring(1));
+        else
+            token = new NgxToken(comment);
+        getTokens().add(token);
     }
 
     @Override

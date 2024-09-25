@@ -55,6 +55,7 @@ public class CommonTest extends ParseTestBase {
 
         assertParam(it.next(), "user", "nginx");
         assertComment(it.next(), "worker_processes  2;");
+        assertComment(it.next(), "comment not end with semicolon");
         assertParam(it.next(), "worker_priority", "-10");
         assertParam(it.next(), "proxy_pass", "http://unix:/opt/apps/ipn/ipn.sock:/");
         Assert.assertFalse(it.hasNext());
